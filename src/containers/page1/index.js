@@ -27,6 +27,7 @@ class Page1 extends React.Component {
   }
 
   componentDidMount() {}
+
   render() {
     var animatedClasses = classNames({
       modal: true,
@@ -50,10 +51,10 @@ class Page1 extends React.Component {
           <Route path="/page1/x2" component={X2} />
         </Switch>
 
-        <button onClick={this.toggleModal}> Toogle </button>
+        <button onClick={this.toggleModal}> Toogle</button>
 
         <div className={animatedClasses}>
-          <button onClick={this.toggleModal}> Back </button>
+          <button onClick={this.toggleModal}> Back</button>
         </div>
       </div>
     );
