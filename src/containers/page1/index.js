@@ -3,13 +3,16 @@ import X1 from './x1.js';
 import X2 from './x2.js';
 import './animate.css';
 import './style.css';
+import { Input, TextArea, Select, Radio, Checkbox } from 'valuelink/tags';
 import classNames from 'classnames';
+import { LinkedComponent } from 'valuelink';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-class Page1 extends React.Component {
+class Page1 extends LinkedComponent {
     state = {
         isShowModal: false,
-        isFirstShow: true
+        isFirstShow: true,
+        tanValue: 'abcd'
     };
 
     constructor(props) {
@@ -37,9 +40,13 @@ class Page1 extends React.Component {
             fadeOutRight: !this.state.isShowModal
         });
 
+        const links = this.linkAll();
+
         return (
             <div>
                 <h1>Page1</h1>
+
+                <Input type="text" valueLink={links.tanValue} />
 
                 <div>
                     <Link to="/page1/x1">X1</Link>
