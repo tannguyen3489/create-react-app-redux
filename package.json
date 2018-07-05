@@ -5,15 +5,21 @@
     "devDependencies": {
         "husky": "^0.14.3",
         "lint-staged": "^7.0.0",
+        "node-sass": "^4.9.1",
         "prettier": "^1.11.0",
         "react-scripts": "^1.0.17",
+        "sass-loader": "^7.0.3",
         "valuelink": "^1.5.5"
     },
     "dependencies": {
+        "bootstrap": "^4.1.1",
         "classnames": "^2.2.5",
+        "formsy-react": "^1.1.4",
         "npm": "^6.0.0",
+        "npm-run-all": "^4.1.3",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
+        "react-form-validation": "^1.1.3",
         "react-redux": "^5.0.6",
         "react-router": "^4.2.0",
         "react-router-dom": "^4.2.2",

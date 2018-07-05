@@ -1,61 +1,46 @@
+import Formsy from 'formsy-react';
 import React from 'react';
+import MyInput from './MyInput';
 
-class Page3 extends React.Component {
-    state = {
-        value1: 'default value from tan.',
-        checkBoxValue1: true
-    };
-
+export default class Page3 extends React.Component {
     constructor(props) {
         super(props);
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.disableButton = this.disableButton.bind(this);
+        this.enableButton = this.enableButton.bind(this);
+        this.state = { canSubmit: false };
     }
 
-    componentDidMount() {}
+    disableButton() {
+        this.setState({ canSubmit: false });
+    }
 
-    // handleInputChange = ({ target: { name, value } }) => {
-    //     console.info('tan ne', name, value, this)
-    //     this.setState({ [name]: value })
-    // }
+    enableButton() {
+        this.setState({ canSubmit: true });
+    }
 
-    handleInputChange(event) {
-        console.info('tan ne', event, event.target, this);
-        const target = event.target;
-        const value =
-            target.type === 'checkbox' ? target.checked : target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
+    submit(model) {
+        fetch('http://example.com/', {
+            method: 'post',
+            body: JSON.stringify(model)
         });
     }
 
     render() {
         return (
-            <div>
-                <h1>Page3</h1>
-                <input
-                    onChange={this.handleInputChange}
-                    name="value1"
-                    value={this.state.value1}
-                    type="text"
+            <Formsy
+                onValidSubmit={this.submit}
+                onValid={this.enableButton}
+                onInvalid={this.disableButton}>
+                <MyInput
+                    name="email"
+                    validations="isEmail"
+                    validationError="This is not a valid email"
+                    required
                 />
-                <input
-                    type="checkbox"
-                    onChange={this.handleInputChange}
-                    value="1"
-                    name="checkBoxValue1"
-                    checked={this.state.checkBoxValue1}
-                />
-            </div>
+                <button type="submit" disabled={!this.state.canSubmit}>
+                    Submit
+                </button>
+            </Formsy>
         );
     }
 }
-
-class Page3Wrap extends React.Component {
-    render() {
-        return <Page3 />;
-    }
-}
-
-export default Page3Wrap;
