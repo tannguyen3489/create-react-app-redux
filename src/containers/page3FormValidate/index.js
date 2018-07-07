@@ -28,21 +28,24 @@ export default class Page3 extends React.Component {
 
     render() {
         return (
-            <Formsy
-                className="page3"
-                onValidSubmit={this.submit}
-                onValid={this.enableButton}
-                onInvalid={this.disableButton}>
-                <MyInput
-                    name="email"
-                    validations="isEmail"
-                    validationError="This is not a valid email"
-                    required
-                />
-                <button type="submit" disabled={!this.state.canSubmit}>
-                    Submit
-                </button>
-            </Formsy>
+            <div className="container">
+                <Formsy
+                    className="page3"
+                    onValidSubmit={this.submit}
+                    onValid={this.enableButton}
+                    onInvalid={this.disableButton}>
+                    <MyInput
+                        name="email"
+                        validations="isEmail"
+                        validationError="This is not a valid email"
+                        required
+                    />
+
+                    <button type="submit" disabled={!this.state.canSubmit}>
+                        Submit
+                    </button>
+                </Formsy>
+            </div>
         );
     }
 }
