@@ -1,6 +1,7 @@
 import Formsy from 'formsy-react';
 import React from 'react';
 import MyInput from './MyInput';
+import './Page3.css';
 
 export default class Page3 extends React.Component {
     constructor(props) {
@@ -28,6 +29,7 @@ export default class Page3 extends React.Component {
     render() {
         return (
             <Formsy
+                className="page3"
                 onValidSubmit={this.submit}
                 onValid={this.enableButton}
                 onInvalid={this.disableButton}>

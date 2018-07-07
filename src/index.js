@@ -7,8 +7,11 @@ import App from './containers/app';
 
 import 'sanitize.css/sanitize.css';
 import './index.css';
-import 'bootstrap/scss/bootstrap.scss';
+import './bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap.css';
+window.$ = window.jQuery = require('jquery');
+require('bootstrap');
+
 const target = document.querySelector('#root');
 
 render(
