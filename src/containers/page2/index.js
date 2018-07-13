@@ -1,15 +1,14 @@
 import { LinkedComponent } from 'valuelink';
 import React from 'react';
-import { Input, TextArea, Select, Radio, Checkbox } from 'valuelink/tags';
+import { Input } from 'valuelink/tags';
 
 class Page2 extends LinkedComponent {
     state = {
         value1: 'default value from tan.'
     };
-
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {}
 

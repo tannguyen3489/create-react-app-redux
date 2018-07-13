@@ -3,10 +3,10 @@ import X1 from './x1.js';
 import X2 from './x2.js';
 import './animate.css';
 import './style.css';
-import { Input, TextArea, Select, Radio, Checkbox } from 'valuelink/tags';
+import { Input } from 'valuelink/tags';
 import classNames from 'classnames';
 import { LinkedComponent } from 'valuelink';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 
 class Page1 extends LinkedComponent {
     state = {

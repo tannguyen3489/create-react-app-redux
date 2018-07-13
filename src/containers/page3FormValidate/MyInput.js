@@ -42,6 +42,7 @@ class MyInput extends React.Component {
         console.info('render MyInput');
         return (
             <div className="form-group">
+                tan test: {this.props.dataInput.abcd}
                 <input
                     data-toggle="tooltip"
                     data-placement="top"
@@ -49,6 +50,7 @@ class MyInput extends React.Component {
                     className="form-control"
                     onChange={this.changeValue}
                     type="text"
+                    name={this.props.name}
                     ref={this.inputElement}
                     value={this.props.getValue() || ''}
                 />

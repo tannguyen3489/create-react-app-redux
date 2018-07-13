@@ -5,6 +5,7 @@ import About from '../about';
 import Page1 from '../page1';
 import Page2 from '../page2';
 import Page3 from '../page3FormValidate';
+import Page4 from '../page4Redux';
 
 const App = () => (
     <div>
@@ -14,6 +15,7 @@ const App = () => (
             <Link to="/page1">Page1</Link>
             <Link to="/page2">Page2</Link>
             <Link to="/page3">Page3</Link>
+            <Link to="/page4">Page4</Link>
         </header>
 
         <main>
@@ -22,6 +24,7 @@ const App = () => (
             <Route path="/page1" component={Page1} />
             <Route path="/page2" component={Page2} />
             <Route path="/page3" component={Page3} />
+            <Route path="/page4" component={Page4} />
         </main>
     </div>
 );
