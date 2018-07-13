@@ -1,5 +1,6 @@
 import React from 'react';
 import { loadPostListData } from '../../modules/postlist';
+import { loadComments } from '../../modules/commentlist';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import postlist from '../../modules/postlist';
@@ -17,12 +18,14 @@ class Page4A extends React.Component {
     componentDidMount() {}
 
     render() {
+        let me = this;
         function ListPostItem(props) {
             const item = props.item;
             console.info('tan ne item', item, props);
             return (
-                // Wrong! There is no need to specify the key here:
-                <li>- {item.title}</li>
+                <li onClick={me.props.loadComments.bind(this, item.id)}>
+                    - {item.title}
+                </li>
             );
         }
 
@@ -48,7 +51,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            loadPostListData
+            loadPostListData,
+            loadComments
         },
         dispatch
     );

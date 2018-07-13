@@ -1,24 +1,27 @@
 import axios from 'axios';
 
-export const LOAD_DATA = 'postlist/LOAD_DATA';
+export const LOAD_DATA = 'commentlist/LOAD_DATA';
 const initialState = {
-    postList: []
+    commentList: []
 };
 export default (state = initialState, action) => {
     switch (action.type) {
         case LOAD_DATA:
             return {
                 ...state,
-                postList: action.payload
+                commentList: action.payload
             };
         default:
             return state;
     }
 };
-export const loadPostListData = () => {
+export const loadComments = postId => {
     return dispatch => {
+        console.info('loadComments', postId);
         axios
-            .get('https://jsonplaceholder.typicode.com/posts')
+            .get(
+                `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+            )
             .then(response => {
                 return dispatch({
                     type: LOAD_DATA,

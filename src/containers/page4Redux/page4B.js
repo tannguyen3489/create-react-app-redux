@@ -1,4 +1,6 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 class Page4B extends React.Component {
     state = {
@@ -13,8 +15,30 @@ class Page4B extends React.Component {
     componentDidMount() {}
 
     render() {
-        return <div>Component B ------ {this.props.inputValue}</div>;
+        const list = this.props.commentList.map(item => {
+            return <li key={item.id}>{item.body}</li>;
+        });
+        return (
+            <div>
+                Component B ------ {this.props.inputValue}
+                <ul>{list}</ul>
+            </div>
+        );
     }
 }
 
-export default Page4B;
+const mapStateToProps = state => ({
+    commentList: state.commentlist.commentList
+});
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            // loadPostListData,
+            // loadComments
+        },
+        dispatch
+    );
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Page4B);
