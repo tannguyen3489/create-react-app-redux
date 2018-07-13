@@ -35,16 +35,30 @@ class Page4 extends React.Component {
                     onChange={this.handleInputChange}
                     value={this.state.value1}
                 />
-                <ComponentA
-                    inputValue={this.state.value1 + ' for component A'}
-                />
-                <hr />
-                <ComponentB
-                    inputValue={this.state.value1 + ' for component B1'}
-                />
-                <ComponentB
-                    inputValue={this.state.value1 + ' for component B2'}
-                />
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-6">
+                            <ComponentA
+                                inputValue={
+                                    this.state.value1 + ' for component A'
+                                }
+                            />
+                        </div>
+                        <div className="col-6">
+                            <ComponentB
+                                inputValue={
+                                    this.state.value1 + ' for component B1'
+                                }
+                            />
+                            <ComponentB
+                                inputValue={
+                                    this.state.value1 + ' for component B2'
+                                }
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
